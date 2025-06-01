@@ -1,26 +1,26 @@
-// src/components/About.jsx
-import React from "react";
+import React from 'react';
+import { motion } from 'framer-motion';
+import { fadeInSection } from '../animations/variants';
 
 const About = () => {
   return (
-    <section
+    <motion.section
       id="about"
-      className="max-w-5xl mx-auto px-6 py-20 text-center"
-      data-aos="fade-up"
+      className="py-16 px-6 bg-yellow dark:bg-yellow-900"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.4 }}
+      variants={fadeInSection}
     >
-      <h2 className="text-3xl font-bold mb-4">About Me</h2>
-      <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-        I’m Saikumar, a Clean Energy Processes master’s student with a passion
-        for sustainable materials, machine learning, and energy systems. My
-        research blends chemical engineering with data science to solve
-        real-world energy problems.
-      </p>
-      <p className="text-lg text-gray-600 dark:text-gray-300 mt-4 leading-relaxed">
-        My goal is to create innovative, data-driven solutions for energy
-        storage, solar technology, and semiconductor systems—bridging academic
-        research and real-world applications.
-      </p>
-    </section>
+      <div className="max-w-3xl mx-auto text-center">
+        <h2 className="text-3xl font-bold mb-4 text-gray-900 dark:text-black">
+          About Me
+        </h2>
+        <p className="text-gray-700 dark:text-gray-300 text-lg">
+          I’m a Master’s student at FAU, passionate about clean energy systems, materials science, and applying machine learning to solve energy problems. I also build data-driven applications and interactive research tools.
+        </p>
+      </div>
+    </motion.section>
   );
 };
 

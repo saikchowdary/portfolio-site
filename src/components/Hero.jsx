@@ -1,25 +1,42 @@
-import React from "react";
+import React from 'react';
+import { motion } from 'framer-motion';
+import { fadeInSection } from '../animations/variants';
+import LottieEnergy from './LottieEnergy';
 
 const Hero = () => {
   return (
-    <section
+    <motion.section
       id="hero"
-      className="min-h-screen flex flex-col justify-center items-center text-center px-6 bg-gradient-to-br from-blue-100 via-white to-purple-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900"
-      data-aos="fade-up"
+      className="min-h-screen flex flex-col items-center justify-center px-6 py-20 bg-gradient-to-br from-yellow-100 to-red-100 text-center"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.2 }}
+      variants={fadeInSection}
     >
-      <h1 className="text-4xl md:text-6xl font-extrabold text-gray-900 dark:text-white mb-4">
-        Hi, I'm <span className="text-yellow-600 light:text-yellow-400">Saikumar</span>
-      </h1>
-      <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-2xl">
-        MSc Clean Energy Processes | Machine Learning Enthusiast | Researcher
-      </p>
-      <a
-        href="#projects"
-        className="mt-8 px-6 py-3 bg-yellow-600 text-white rounded hover:bg-yellow-700 transition-all light:bg-yellow-600 light:hover:bg-yellow-700"
+      <div className="max-w-2xl mx-auto">
+        <h1 className="text-5xl md:text-6xl font-bold mb-4">
+          Hi, I'm <span className="text-yellow-500">Saikumar</span>
+        </h1>
+        <p className="text-xl md:text-2xl text-gray-700 mb-6">
+          Clean Energy | Machine Learning | Materials Science
+        </p>
+        <a
+          href="#projects"
+          className="bg-red-500 text-white px-6 py-3 rounded-full hover:bg-red-600 transition"
+        >
+          See My Work
+        </a>
+      </div>
+
+      <motion.div
+        className="mt-8"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1 }}
       >
-        View My Projects
-      </a>
-    </section>
+        <LottieEnergy />
+      </motion.div>
+    </motion.section>
   );
 };
 
